@@ -2,7 +2,7 @@ import React from 'react';
 import AddUser from './AddUser';
 import { renderWithProviders } from 'helpers/tests/renderWithProviders';
 import { fireEvent, screen } from '@testing-library/react';
-import Dashboard from './Dashboard';
+import Dashboard from '../Dashboard';
 
 describe('Form Field', () => {
   it('Renders the component', () => {

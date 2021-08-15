@@ -5,7 +5,7 @@ import { theme } from 'assets/styles/theme';
 import { Wrapper } from './Root.styles';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import MainTemplate from 'components/templates/MainTemplate/MainTemplate';
-import AddUser from 'views/AddUser';
+import AddUser from 'views/AddUser/AddUser';
 import Dashboard from 'views/Dashboard';
 import UsersProvider from 'providers/UsersProvider';
 

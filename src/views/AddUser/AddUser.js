@@ -4,7 +4,7 @@ import { Button } from 'components/atoms/Button/Button';
 import { ViewWrapper } from 'components/molecules/ViewWrapper/ViewWrapper';
 import { Title } from 'components/atoms/Title/Title';
 import { UsersContext } from 'providers/UsersProvider';
-import { useForm } from '../hooks/useForm';
+import { useForm } from '../../hooks/useForm';
 
 const initialFormState = {
   name: '',
