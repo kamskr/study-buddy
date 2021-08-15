@@ -12,21 +12,28 @@ const initialFormState = {
   consent: false,
 };
 
+const actionTypes = {
+  INPUT_CHANGE: 'INPUT_CHANGE',
+  CLEAR_VALUES: 'CLEAR_VALUES',
+  CONSENT_TOGGLE: 'CONSENT_TOGGLE',
+  THROW_ERROR: 'THROW_ERROR',
+};
+
 const reducer = (state, action) => {
   switch (action.type) {
-    case 'INPUT_CHANGE':
+    case actionTypes.INPUT_CHANGE:
       return {
         ...state,
         [action.field]: action.value,
       };
-    case 'CLEAR_VALUES':
+    case actionTypes.CLEAR_VALUES:
       return initialFormState;
-    case 'CONSENT_TOGGLE':
+    case actionTypes.CONSENT_TOGGLE:
       return {
         ...state,
         consent: !state.consent,
       };
-    case 'THROW_ERROR':
+    case actionTypes.THROW_ERROR:
       return {
         ...state,
         error: action.errorValue,
@@ -42,7 +49,7 @@ const AddUser = () => {
 
   const handleInputChange = (e) => {
     dispatch({
-      type: 'INPUT_CHANGE',
+      type: actionTypes.INPUT_CHANGE,
       field: e.target.name,
       value: e.target.value,
     });
@@ -52,9 +59,9 @@ const AddUser = () => {
     e.preventDefault();
     if (formValues.consent) {
       handleAddUser(formValues);
-      dispatch({ type: 'CLEAR_VALUES' });
+      dispatch({ type: actionTypes.CLEAR_VALUES });
     } else {
-      dispatch({ type: 'THROW_ERROR', errorValue: 'You need to give consent' });
+      dispatch({ type: actionTypes.THROW_ERROR, errorValue: 'You need to give consent' });
     }
   };
 
@@ -70,7 +77,7 @@ const AddUser = () => {
         name="consent"
         type="checkbox"
         value={formValues.consent}
-        onChange={() => dispatch({ type: 'CONSENT_TOGGLE' })}
+        onChange={() => dispatch({ type: actionTypes.CONSENT_TOGGLE })}
       />
       <Button type="submit">Add</Button>
       {formValues.error ? <p>{formValues.error}</p> : null}
